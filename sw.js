@@ -1,4 +1,4 @@
-const CACHE_NAME = "jiulong-laguan-v5";
+const CACHE_NAME = "jiulong-laguan-v6";
 const APP_SHELL = [
   "/",
   "/manifest.webmanifest",
