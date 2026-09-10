@@ -1,0 +1,13 @@
+{
+  "name": "九龙拉棺",
+  "short_name": "九龙拉棺",
+  "description": "虚拟注射心理模拟器",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#061321",
+  "theme_color": "#061321",
+  "icons": [
+    { "src": "/assets/jiulong/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/jiulong/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
