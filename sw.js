@@ -1,4 +1,4 @@
-const CACHE_NAME = "jiulong-laguan-v2";
+const CACHE_NAME = "jiulong-laguan-v3";
 const APP_SHELL = [
   "/",
   "/manifest.webmanifest",
@@ -21,6 +21,22 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put("/", copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match("/")),
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
